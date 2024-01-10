@@ -1,4 +1,5 @@
 # Definition for a binary tree node.
+import collections
 class TreeNode(object):
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -11,7 +12,7 @@ class Solution(object):
         :type start: int
         :rtype: int
         """
-        graph=defaultdict(list)
+        graph=collections.defaultdict(list)
         def dfs(root):
             if not root:
                 return
@@ -25,7 +26,7 @@ class Solution(object):
             dfs(root.right)
         dfs(root)
         visited=set()
-        queue=deque([start])
+        queue=collections.deque([start])
         time=-1
         while queue:
             time+=1
